@@ -36,6 +36,7 @@ namespace PostAndPlayTests.Pages
 
         public HomePage Login()
         {
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             email.SendKeys("s@s.com");
             password.SendKeys("steven");
             submit.Click();
