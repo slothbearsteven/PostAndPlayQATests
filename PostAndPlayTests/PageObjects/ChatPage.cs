@@ -21,25 +21,14 @@ namespace PostAndPlayTests.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.CssSelector, Using = ".grid-ipnut")]
-        private IWebElement messageInput;
+        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[2]/form/input")]
+        public IWebElement messageInput;
 
-        [FindsBy(How = How.CssSelector, Using = ".btn .btn-info button[type='submit']")]
-        private IWebElement submitButton;
+        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[2]/form/div/button")]
+        public IWebElement submitButton;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[1]/div/div[1]")]
-        private IWebElement messageSent;
+        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[1]/div/div[1]/div/div[2]/p")]
+        public IWebElement messageSent;
 
-        public void SendMessage()
-        {
-            messageInput.SendKeys("This is an automated test");
-            submitButton.Click();
-        }
-
-        public string GetMessageContent()
-        {
-            return messageSent.Text;
-
-        }
     }
 }

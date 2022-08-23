@@ -20,7 +20,7 @@ namespace PostAndPlayTests.Pages
             PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='app'']/div/div/div[2]/div/div[2]/div/div/strong/a")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div[2]/div/div[2]/div/div/strong/a")]
         private IWebElement chatLink;
 
         public ChatPage NavigateToChat()

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using PostAndPlayTests.Pages;
 
-namespace PostAndPlayTests
+namespace PostAndPlayTests.Tests
 {
-    public class Test
+    public class LoginTest
     {
         IWebDriver driver;
 
@@ -23,11 +23,15 @@ namespace PostAndPlayTests
             driver = new ChromeDriver();
         }
         [Test]
-        public void SendMessageTest()
+        public void Login()
         {
-            LoginPage login = new LoginPage(driver);
-            login.GoToPage();
-            login.Login();
+            LoginPage loginPage = new LoginPage(driver);
+            loginPage.GoToPage();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+
+            loginPage.emailField.SendKeys("s@s.com");
+            loginPage.passwordField.SendKeys("steven");
+            loginPage.SubmitAccount();
 
 
         }

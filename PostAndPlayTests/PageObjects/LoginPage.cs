@@ -21,25 +21,23 @@ namespace PostAndPlayTests.Pages
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/form/input[1]")]
-        private IWebElement email;
+        public IWebElement emailField;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/form/input[2]")]
-        private IWebElement password;
+        public IWebElement passwordField;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/form/button")]
-        private IWebElement submit;
+        public IWebElement submitButton;
 
         public void GoToPage()
         {
             driver.Navigate().GoToUrl("http://post-n-play.herokuapp.com/#/login");
         }
 
-        public HomePage Login()
+        public HomePage SubmitAccount()
         {
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-            email.SendKeys("s@s.com");
-            password.SendKeys("steven");
-            submit.Click();
+         
+            submitButton.Click();
 
             return new HomePage(driver);
         }
