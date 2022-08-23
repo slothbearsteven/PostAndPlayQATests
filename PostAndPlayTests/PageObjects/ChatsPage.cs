@@ -15,14 +15,14 @@ namespace PostAndPlayTests.PageObjects
             PageFactory.InitElements(driver, this);
         }
 
-        IWebElement chatNameInput;
-        
-        IWebElement chatDescriptionInput;
+        public IWebElement chatNameInput { get; private set; }
 
-        IWebElement createChatButton;
+        public IWebElement chatDescriptionInput { get; private set; }
 
-        IWebElement recentlyCreatedChat;
+        public IWebElement createChatButton { get; private set; }
 
-        IWebElement deleteChatButton;
+        public IWebElement recentlyCreatedChat { get; private set; }
+
+        public IWebElement deleteChatButton { get; private set; }
     }
 }

@@ -21,7 +21,7 @@ namespace PostAndPlayTests.Pages
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div[2]/div/div[2]/div/div/strong/a")]
-        private IWebElement chatLink;
+        public IWebElement chatLink { get; private set; }
 
         public ChatPage NavigateToChat()
         {

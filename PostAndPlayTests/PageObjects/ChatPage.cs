@@ -22,13 +22,13 @@ namespace PostAndPlayTests.Pages
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[2]/form/input")]
-        public IWebElement messageInput;
+        public IWebElement messageInput { get; private set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[2]/form/div/button")]
-        public IWebElement submitButton;
+        public IWebElement submitButton { get; private set; }
 
         [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[1]/div/div[1]/div/div[2]/p")]
-        public IWebElement messageSent;
+        public IWebElement messageSent { get; private set; }
 
     }
 }
