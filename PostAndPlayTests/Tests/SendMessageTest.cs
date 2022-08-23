@@ -24,18 +24,18 @@ namespace PostAndPlayTests.Tests
         {
             LoginPage loginPage = new LoginPage(driver);
             loginPage.GoToPage();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
 
             loginPage.emailField.SendKeys("s@s.com");
             loginPage.passwordField.SendKeys("steven");
             loginPage.SubmitAccount();
 
             HomePage homePage = new HomePage(driver);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
             homePage.NavigateToChat();
 
             ChatPage chatPage = new ChatPage(driver);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
             chatPage.messageInput.Click();
             chatPage.messageInput.SendKeys("This is an automated test");
             chatPage.submitButton.Click();
