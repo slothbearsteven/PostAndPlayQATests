@@ -23,7 +23,7 @@ namespace PostAndPlayTests.Pages
         [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div[2]/div/div[2]/div/div/strong/a")]
         public IWebElement chatLink { get; private set; }
 
-        public ChatPage NavigateToChat()
+        public ChatPage NavigateToSubscribedChat()
         {
             chatLink.Click();
 

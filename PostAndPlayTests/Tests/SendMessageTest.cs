@@ -32,7 +32,7 @@ namespace PostAndPlayTests.Tests
 
             HomePage homePage = new HomePage(driver);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
-            homePage.NavigateToChat();
+            homePage.NavigateToSubscribedChat();
 
             ChatPage chatPage = new ChatPage(driver);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
@@ -40,8 +40,9 @@ namespace PostAndPlayTests.Tests
             chatPage.messageInput.SendKeys("This is an automated test");
             chatPage.submitButton.Click();
 
+            driver.Navigate().Refresh();
             string expectedText = "This is an automated test";
-
+           
             Assert.AreEqual(expectedText,chatPage.messageSent.Text);
         }
       
