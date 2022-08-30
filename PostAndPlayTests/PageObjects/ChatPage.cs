@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -18,17 +17,14 @@ namespace PostAndPlayTests.Pages
         public ChatPage(IWebDriver webDriver)
         {
             this.driver = webDriver;
-            PageFactory.InitElements(driver, this);
         }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[2]/form/input")]
-        public IWebElement messageInput { get; private set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[2]/form/div/button")]
-        public IWebElement submitButton { get; private set; }
+        public IWebElement messageInput => driver.FindElement(By.XPath("//*[@id='app']/div/div/div/div[2]/form/input"));
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div/div[1]/div/div[1]/div/div[2]/p")]
-        public IWebElement messageSent { get; private set; }
+        public IWebElement submitButton => driver.FindElement(By.XPath("//*[@id='app']/div/div/div/div[2]/form/div/button"));
 
+        public IWebElement messageSent => driver.FindElement(By.XPath("//*[@id='app']/div/div/div/div[1]/div/div[1]/div/div[2]/p"));
+   
     }
 }

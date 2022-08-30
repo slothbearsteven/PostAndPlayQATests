@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -17,17 +16,13 @@ namespace PostAndPlayTests.Pages
         public LoginPage(IWebDriver webDriver)
         {
             this.driver = webDriver;
-            PageFactory.InitElements(driver, this);
+          
         }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/form/input[1]")]
-        public IWebElement emailField { get; private set; }
+        public IWebElement emailField => driver.FindElement(By.XPath("//*[@id='app']/div/div/form/input[1]"));
+        public IWebElement passwordField => driver.FindElement(By.XPath("//*[@id='app']/div/div/form/input[2]"));
+        public IWebElement submitButton => driver.FindElement(By.XPath("//*[@id='app']/div/div/form/button"));
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/form/input[2]")]
-        public IWebElement passwordField { get; private set; }
-
-        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/form/button")]
-        public IWebElement submitButton { get; private set; }
 
         public void GoToPage()
         {

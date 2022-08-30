@@ -12,25 +12,14 @@ namespace PostAndPlayTests.PageObjects
         public NavBar(IWebDriver webDriver)
         {
             this.driver = webDriver;
-            PageFactory.InitElements(driver, this);
+           
 
         }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='nav']/div/div[2]/a/button")]
-        public IWebElement chatsButton { get; private set; }
-
-        [FindsBy(How = How.XPath, Using = "///*[@id='nav']/div/a")]
-        public IWebElement homeButton { get; private set; }
-
-        [FindsBy(How = How.XPath, Using = "//*[@id='nav']/div/div[1]/a/button")]
-        public IWebElement charactersButton { get; private set; }
-
-        [FindsBy(How = How.XPath, Using = "//*[@id='nav']/div/div[2]/div/div/button")]
-        public IWebElement diceButton { get; private set; }
-
-        [FindsBy(How = How.XPath, Using = "//*[@id='nav']/div/div[1]/div/div/button")]
-        public IWebElement logoutButton { get; private set; }
-
-
+        public IWebElement chatsButton => driver.FindElement(By.XPath("//*[@id='nav']/div/div[2]/a/button"));
+        public IWebElement homeButton => driver.FindElement(By.XPath("//*[@id='nav']/div/a"));
+        public IWebElement charactersButton => driver.FindElement(By.XPath("//*[@id='nav']/div/div[1]/a/button"));
+        public IWebElement diceButton => driver.FindElement(By.XPath("//*[@id='nav']/div/div[2]/div/div/button"));
+        public IWebElement logoutButton => driver.FindElement(By.XPath("//*[@id='nav']/div/div[1]/div/div/button"));
     }
 }

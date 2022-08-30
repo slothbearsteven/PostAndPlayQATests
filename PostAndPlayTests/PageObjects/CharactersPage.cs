@@ -12,7 +12,7 @@ namespace PostAndPlayTests.PageObjects
         public CharactersPage(IWebDriver webDriver)
         {
             this.driver = webDriver;
-            PageFactory.InitElements(driver, this);
+           
         }
 
         /*Create element locators for the create character button; character name, stats, and description

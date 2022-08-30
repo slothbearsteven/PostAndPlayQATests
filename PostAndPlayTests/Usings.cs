@@ -1,6 +1,5 @@
 global using NUnit.Framework;
 global using OpenQA.Selenium;
-global using SeleniumExtras.PageObjects;
 global using SeleniumExtras.WaitHelpers;
 global using OpenQA.Selenium.Chrome;
 global using System;

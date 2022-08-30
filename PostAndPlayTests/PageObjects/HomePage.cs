@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -17,11 +16,12 @@ namespace PostAndPlayTests.Pages
         public HomePage(IWebDriver webDriver)
         {
             this.driver = webDriver;
-            PageFactory.InitElements(driver, this);
+           
         }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id='app']/div/div/div[2]/div/div[2]/div/div/strong/a")]
-        public IWebElement chatLink { get; private set; }
+        public IWebElement chatLink => driver.FindElement(By.XPath("//*[@id='app']/div/div/div[2]/div/div[2]/div/div/strong/a"));
+
+       
 
         public ChatPage NavigateToSubscribedChat()
         {
