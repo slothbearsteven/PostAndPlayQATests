@@ -17,9 +17,10 @@ namespace PostAndPlayTests.Tests
         public void SetUp()
         {
             driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
         }
         [Test]
-        public void Login()
+        public void CreateChat()
         {
             LoginPage loginPage = new LoginPage(driver);
             loginPage.GoToPage();
@@ -29,20 +30,22 @@ namespace PostAndPlayTests.Tests
             loginPage.passwordField.SendKeys("steven");
             loginPage.SubmitAccount();
 
-            NavBar navBar = new NavBar(driver);
-            navBar.chatsButton.Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
+          HomePage homePage = new HomePage(driver);
+            homePage.chatsButton.Click();
+
 
             ChatsPage chatsPage = new ChatsPage(driver);    
             chatsPage.chatNameInput.Click();
             chatsPage.chatNameInput.SendKeys("automated test Chat");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
-            chatsPage.createChatButton.Click();
+            
+   //currently the driver is not finding the create button. This is odd as the primary change made had nothing to do with the button, and had no previous problem. 
+            chatsPage.CreateChat().Click();
 
             string expectedText = "automated test Chat";
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
 
-            Assert.AreEqual(expectedText, chatsPage.recentlyCreatedChat.Text);
+            Assert.AreEqual(expectedText, chatsPage.FindMostRecentChat().Text);
 
 
 
