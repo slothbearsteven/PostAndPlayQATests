@@ -17,14 +17,14 @@ namespace PostAndPlayTests.Tests
         public void SetUp()
         {
             driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
+           
         }
         [Test]
         public void CreateChat()
         {
             LoginPage loginPage = new LoginPage(driver);
             loginPage.GoToPage();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
             loginPage.emailField.SendKeys("s@s.com");
             loginPage.passwordField.SendKeys("steven");
@@ -40,12 +40,13 @@ namespace PostAndPlayTests.Tests
             chatsPage.chatNameInput.SendKeys("automated test Chat");
             
    //currently the driver is not finding the create button. This is odd as the primary change made had nothing to do with the button, and had no previous problem. 
-            chatsPage.CreateChat().Click();
+            chatsPage.createChatButton.Click();
 
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             string expectedText = "automated test Chat";
 
 
-            Assert.AreEqual(expectedText, chatsPage.FindMostRecentChat().Text);
+            Assert.AreEqual(expectedText, chatsPage.FindMostRecentChat(0).Text);
 
 
 
