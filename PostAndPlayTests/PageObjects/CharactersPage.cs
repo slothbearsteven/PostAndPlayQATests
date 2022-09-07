@@ -15,14 +15,12 @@ namespace PostAndPlayTests.PageObjects
            
         }
 
-        /*Create element locators for the create character button; character name, stats, and description
-         * inputs on character creation modal as well as submit button;
-         * item that checks for the amount of child elements existence 
+        /*
+         * Just as a note, will need to ensure that the page differentiates between the modal and the original page. Will review such and adjust respectively
          */
         public IWebElement createCharacterButton => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div/div/button"));
 
-        private IReadOnlyList<IWebElement> totalCharacters => driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*"));
-        public IWebElement recentCharacterMade => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div["+totalCharacters.Count().ToString()+"]" ) );
+        
 
         public IWebElement characterNameInput => driver.FindElement(By.Id("charactername"));
 
@@ -30,7 +28,14 @@ namespace PostAndPlayTests.PageObjects
 
         public IWebElement characterDescriptionInput => driver.FindElement(By.Id("characterdescription"));
 
+        public IWebElement submitCharacterButton => driver.FindElement(By.XPath("//*[@id=\"characterModal\"]/div/div/div[2]/form/div[3]/button"));
 
+        public IWebElement GetMostRecentCharacterMade() { 
+        IReadOnlyList<IWebElement> totalCharacters = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*"));
+
+       return driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div["+totalCharacters.Count().ToString()+"]" ) );
+       
+        }
 
 
 
