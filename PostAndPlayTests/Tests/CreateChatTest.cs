@@ -24,13 +24,14 @@ namespace PostAndPlayTests.Tests
         {
             LoginPage loginPage = new LoginPage(driver);
             loginPage.GoToPage();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             loginPage.emailField.SendKeys("s@s.com");
             loginPage.passwordField.SendKeys("steven");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
             loginPage.SubmitAccount();
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
           HomePage homePage = new HomePage(driver);
             homePage.chatsButton.Click();
 
@@ -39,7 +40,6 @@ namespace PostAndPlayTests.Tests
             chatsPage.chatNameInput.Click();
             chatsPage.chatNameInput.SendKeys("automated test Chat");
             
-   //currently the driver is not finding the create button. This is odd as the primary change made had nothing to do with the button, and had no previous problem. 
             chatsPage.createChatButton.Click();
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
