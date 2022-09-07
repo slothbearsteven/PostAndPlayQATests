@@ -21,7 +21,8 @@ namespace PostAndPlayTests.PageObjects
          */
         public IWebElement createCharacterButton => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div/div/button"));
 
-        public IWebElement recentCharacterMade => driver.FindElement(By.XPath(""));
+        private IReadOnlyList<IWebElement> totalCharacters => driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*"));
+        public IWebElement recentCharacterMade => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div["+totalCharacters.Count().ToString()+"]" ) );
 
         public IWebElement characterNameInput => driver.FindElement(By.Id("charactername"));
 
