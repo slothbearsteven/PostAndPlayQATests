@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PostAndPlayTests.FreqMethods;
 using PostAndPlayTests.Pages;
 
 
@@ -22,13 +23,8 @@ namespace PostAndPlayTests.Tests
         [Test]
         public void SendMessage()
         {
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.GoToPage();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
-
-            loginPage.emailField.SendKeys("s@s.com");
-            loginPage.passwordField.SendKeys("steven");
-            loginPage.SubmitAccount();
+            LoginMethods loginMethods = new LoginMethods();
+            loginMethods.HappyPathLogin(driver);
 
             HomePage homePage = new HomePage(driver);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);

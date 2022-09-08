@@ -15,12 +15,10 @@ namespace PostAndPlayTests.PageObjects
            
         }
 
-        /*
-         * Just as a note, will need to ensure that the page differentiates between the modal and the original page. Will review such and adjust respectively
-         */
+
         public IWebElement createCharacterButton => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/div/div/button"));
 
-        
+        //Begin Modal content
 
         public IWebElement characterNameInput => driver.FindElement(By.Id("charactername"));
 
@@ -30,10 +28,13 @@ namespace PostAndPlayTests.PageObjects
 
         public IWebElement submitCharacterButton => driver.FindElement(By.XPath("//*[@id=\"characterModal\"]/div/div/div[2]/form/div[3]/button"));
 
-        public IWebElement GetMostRecentCharacterMade() { 
-        IReadOnlyList<IWebElement> totalCharacters = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*"));
+        //End Modal Content
 
-       return driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div["+totalCharacters.Count().ToString()+"]" ) );
+        public IWebElement GetMostRecentCharacterMade() { 
+        
+          IReadOnlyList<IWebElement> totalCharacters = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*"));
+
+         return driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div["+totalCharacters.Count().ToString()+"]" ) );
        
         }
 

@@ -22,4 +22,8 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="104.0.5112.7900" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FreqMethods\" />
+  </ItemGroup>
+
 </Project>

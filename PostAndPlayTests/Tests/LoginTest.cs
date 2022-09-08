@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using PostAndPlayTests.Pages;
+using PostAndPlayTests.FreqMethods;
 
 namespace PostAndPlayTests.Tests
 {
@@ -23,18 +24,13 @@ namespace PostAndPlayTests.Tests
             driver = new ChromeDriver();
         }
         [Test]
-        public void Login()
-        {
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.GoToPage();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
-
-            loginPage.emailField.SendKeys("s@s.com");
-            loginPage.passwordField.SendKeys("steven");
-            loginPage.SubmitAccount();
-
-
+        public void Login() { 
+        LoginMethods loginMethods = new LoginMethods();
+            loginMethods.HappyPathLogin(driver);
         }
+
+
+        
         [TearDown]
         public void TearDown()
         {

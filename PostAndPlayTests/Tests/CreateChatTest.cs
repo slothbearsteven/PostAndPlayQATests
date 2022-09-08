@@ -1,4 +1,5 @@
-﻿using PostAndPlayTests.PageObjects;
+﻿using PostAndPlayTests.FreqMethods;
+using PostAndPlayTests.PageObjects;
 using PostAndPlayTests.Pages;
 using System;
 using System.Collections.Generic;
@@ -22,14 +23,8 @@ namespace PostAndPlayTests.Tests
         [Test]
         public void CreateChat()
         {
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.GoToPage();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-            loginPage.emailField.SendKeys("s@s.com");
-            loginPage.passwordField.SendKeys("steven");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
-            loginPage.SubmitAccount();
+            LoginMethods loginMethods = new LoginMethods();
+            loginMethods.HappyPathLogin(driver);
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
           HomePage homePage = new HomePage(driver);
@@ -39,7 +34,8 @@ namespace PostAndPlayTests.Tests
             ChatsPage chatsPage = new ChatsPage(driver);    
             chatsPage.chatNameInput.Click();
             chatsPage.chatNameInput.SendKeys("automated test Chat");
-            
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+
             chatsPage.createChatButton.Click();
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
