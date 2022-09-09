@@ -30,13 +30,39 @@ namespace PostAndPlayTests.PageObjects
 
         //End Modal Content
 
-        public IWebElement GetMostRecentCharacterMade() { 
-        
-          IReadOnlyList<IWebElement> totalCharacters = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*"));
+        int totalCharacters;
 
-         return driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div["+totalCharacters.Count().ToString()+"]" ) );
-       
+
+        public IWebElement GetMostRecentCharacterMade(int i) { 
+        
+        
+
+            driver.Navigate().Refresh();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            try
+            {
+
+               totalCharacters = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*")).Count;
+
+                return driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div[" + totalCharacters+ "]"));
+            }
+            catch
+            {
+                if (i < 5)
+                {
+                    i++;
+                    return GetMostRecentCharacterMade(i);
+                }
+                else
+                {
+
+
+                    return driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div[" + totalCharacters + "]"));
+                }
+            }
+
         }
+
 
 
 
