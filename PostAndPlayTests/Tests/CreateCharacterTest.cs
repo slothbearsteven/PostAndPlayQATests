@@ -32,6 +32,7 @@ namespace PostAndPlayTests.Tests
             loginMethods.HappyPathLogin(driver);
 
             HomePage homePage = new HomePage(driver);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             homePage.charactersButton.Click();
 
             CharactersPage charactersPage = new CharactersPage(driver);

@@ -27,6 +27,10 @@ namespace PostAndPlayTests.Tests
         public void Login() { 
         LoginMethods loginMethods = new LoginMethods();
             loginMethods.HappyPathLogin(driver);
+
+           
+           
+            Assert.AreEqual("http://post-n-play.herokuapp.com/#/", driver.Url);
         }
 
 

@@ -26,8 +26,8 @@ namespace PostAndPlayTests.Tests
             LoginMethods loginMethods = new LoginMethods();
             loginMethods.HappyPathLogin(driver);
 
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
           HomePage homePage = new HomePage(driver);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             homePage.chatsButton.Click();
 
 

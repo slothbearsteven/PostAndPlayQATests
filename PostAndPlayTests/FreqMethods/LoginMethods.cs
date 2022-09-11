@@ -17,7 +17,9 @@ namespace PostAndPlayTests.FreqMethods
 
             loginPage.emailField.SendKeys("s@s.com");
             loginPage.passwordField.SendKeys("steven");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
             loginPage.SubmitAccount();
+            Thread.Sleep(800);
         }
     }
 }
