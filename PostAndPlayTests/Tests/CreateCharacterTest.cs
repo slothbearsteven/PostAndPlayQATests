@@ -26,6 +26,8 @@ namespace PostAndPlayTests.Tests
         {
 
             string characterName = "Selenius Automa";
+            string characterDescription = "This is an automatically created character";
+            string characterStats = "";
 
             LoginMethods loginMethods = new LoginMethods();
             loginMethods.HappyPathLogin(driver);
@@ -38,6 +40,10 @@ namespace PostAndPlayTests.Tests
             charactersPage.createCharacterButton.Click();
              driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             charactersPage.characterNameInput.SendKeys(characterName);
+            charactersPage.characterDescriptionInput.Click();
+          charactersPage.characterDescriptionInput.SendKeys(characterDescription);
+            charactersPage.characterStatsInput.Click();
+            charactersPage.characterStatsInput.SendKeys(characterStats);
           
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
@@ -46,10 +52,13 @@ namespace PostAndPlayTests.Tests
 
             driver.Navigate().Refresh();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
-           
-            IWebElement createdCharacterName = charactersPage.GetMostRecentCharacterMade(0).FindElement(By.XPath(".//strong"));
 
-            Assert.AreEqual(characterName, createdCharacterName.Text);
+            IWebElement createdCharacter = charactersPage.GetMostRecentCharacterMade(0);
+            string createdCharacterName =createdCharacter.FindElement(By.XPath(".//strong")).Text;
+            string createdCharacterDescription = createdCharacter.FindElement(By.XPath(".//div[1]/p")).Text;
+
+            Assert.AreEqual(characterName, createdCharacterName);
+            Assert.AreEqual(characterDescription, createdCharacterDescription);  
         }
         [TearDown]
         public void TearDown()
