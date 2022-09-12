@@ -26,8 +26,7 @@ namespace PostAndPlayTests.Tests
         {
 
             string characterName = "Selenius Automa";
-            string characterDescription = "Automated test character";
-            string characterStats = "Automation: 15 / Programing:10 / Boxness: 21";
+
             LoginMethods loginMethods = new LoginMethods();
             loginMethods.HappyPathLogin(driver);
 

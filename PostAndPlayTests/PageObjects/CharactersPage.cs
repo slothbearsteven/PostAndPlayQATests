@@ -22,9 +22,9 @@ namespace PostAndPlayTests.PageObjects
 
         public IWebElement characterNameInput => driver.FindElement(By.Id("charactername"));
 
-        public IWebElement characterStatsInput => driver.FindElement(By.Id("characterstats"));
+        public IWebElement characterStatsInput => driver.FindElement(By.Id("characterStats"));
 
-        public IWebElement characterDescriptionInput => driver.FindElement(By.Id("characterdescription"));
+        public IWebElement characterDescriptionInput => driver.FindElement(By.Id("characterDescription"));
 
         public IWebElement submitCharacterButton => driver.FindElement(By.XPath("//*[@id=\"characterModal\"]/div/div/div[2]/form/div[3]/button"));
 
@@ -38,7 +38,7 @@ namespace PostAndPlayTests.PageObjects
         
 
             driver.Navigate().Refresh();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             try
             {
 

@@ -27,6 +27,12 @@ namespace PostAndPlayTests.Pages
         public IWebElement diceButton => driver.FindElement(By.XPath("//*[@id='nav']/div/div[2]/div/div/button"));
         public IWebElement logoutButton => driver.FindElement(By.XPath("//*[@id='nav']/div/div[1]/div/div/button"));
 
+
+        //Begin Dice Modal elements
+        public IWebElement rollD20Button => driver.FindElement(By.XPath("//*[@id=\"diceModal\"]/div/div/div[2]/div/div[1]/div[1]/button"));
+        public IWebElement diceResult => driver.FindElement(By.Id("results"));
+        //End Dice Modal elements
+
         public ChatPage NavigateToSubscribedChat()
         {
             chatLink.Click();
