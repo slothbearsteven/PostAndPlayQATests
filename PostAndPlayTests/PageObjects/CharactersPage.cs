@@ -32,7 +32,7 @@ namespace PostAndPlayTests.PageObjects
 
         int totalCharacters;
 
-
+         
         public IWebElement GetMostRecentCharacterMade(int i) { 
         
         
@@ -46,6 +46,7 @@ namespace PostAndPlayTests.PageObjects
 
                 return driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div[" + totalCharacters+ "]"));
             }
+            //*[@id="app"]/div/div/div[2]/div[3]/div[2]/button[2]
             catch
             {
                 if (i < 5)

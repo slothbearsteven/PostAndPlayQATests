@@ -1,4 +1,5 @@
 ﻿using PostAndPlayTests.FreqMethods;
+using PostAndPlayTests.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,23 @@ namespace PostAndPlayTests.Tests
             CharactersMethods charactersMethods = new CharactersMethods();
 
             charactersMethods.CreateCharacterHappy(driver);
+            CharactersPage charactersPage = new CharactersPage(driver);
 
-            int originalCharacterCount;
-            int updatedCharacterCount;
+            int originalCharacterCount = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*")).Count;
+
+
+            IWebElement deleteCharacterButton =charactersPage.GetMostRecentCharacterMade(0).FindElement(By.XPath(".//div[2]/button[2]"));
+            deleteCharacterButton.Click();
+            
+            //Need to add alert interaction here
+
+            driver.Navigate().Refresh();
+
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+
+            int updatedCharacterCount = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/*")).Count;
+
+            Assert.AreNotEqual(updatedCharacterCount, originalCharacterCount);
             
         }
 
