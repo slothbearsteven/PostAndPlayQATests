@@ -28,6 +28,8 @@ namespace PostAndPlayTests.PageObjects
 
         public IWebElement submitCharacterButton => driver.FindElement(By.XPath("//*[@id=\"characterModal\"]/div/div/div[2]/form/div[3]/button"));
 
+        public IAlert alert => driver.SwitchTo().Alert();
+
         //End Modal Content
 
         int totalCharacters;

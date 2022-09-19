@@ -30,8 +30,8 @@ namespace PostAndPlayTests.Tests
 
             IWebElement deleteCharacterButton =charactersPage.GetMostRecentCharacterMade(0).FindElement(By.XPath(".//div[2]/button[2]"));
             deleteCharacterButton.Click();
-            
-            //Need to add alert interaction here
+
+            charactersPage.alert.Accept();
 
             driver.Navigate().Refresh();
 
