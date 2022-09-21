@@ -1,6 +1,5 @@
 ﻿using PostAndPlayTests.FreqMethods;
 using PostAndPlayTests.PageObjects;
-using PostAndPlayTests.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,39 +8,32 @@ using System.Threading.Tasks;
 
 namespace PostAndPlayTests.Tests
 {
-    internal class CreateChatTest
+    internal class DeleteChatTest
     {
         IWebDriver driver;
-
         [SetUp]
-
-        public void SetUp()
+        public void Setup()
         {
             driver = new ChromeDriver();
-           
         }
+
         [Test]
-        public void CreateChat()
+
+        public void DeleteChat()
         {
             ChatsMethods chatsMethods = new ChatsMethods();
 
             chatsMethods.ChatCreationHappy(driver);
 
             ChatsPage chatsPage = new ChatsPage(driver);
-     
-            string expectedText = "automated test Chat";
-            
-
-            Assert.AreEqual(expectedText, chatsPage.FindMostRecentChat(0).Text);
-
-
-
 
         }
+
         [TearDown]
         public void TearDown()
         {
-            driver.Close();
+            driver.Quit();
         }
+
     }
 }
