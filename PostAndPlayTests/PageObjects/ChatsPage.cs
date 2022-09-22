@@ -24,7 +24,6 @@ namespace PostAndPlayTests.PageObjects
 
 
         public IWebElement deleteChatButton => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[1]/div/form/input[2]"));
-
         public IWebElement FindMostRecentChat(int i)
         {
             

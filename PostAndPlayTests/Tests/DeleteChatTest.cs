@@ -27,6 +27,17 @@ namespace PostAndPlayTests.Tests
 
             ChatsPage chatsPage = new ChatsPage(driver);
 
+            int originalChatsAmount = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/strong/*")).Count;
+
+            chatsPage.deleteChatButton.Click();
+
+            driver.Navigate().Refresh();
+
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
+
+            int updatedChatsAmount = driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/strong/*")).Count;
+
+            Assert.AreNotEqual(updatedChatsAmount, originalChatsAmount);
         }
 
         [TearDown]
