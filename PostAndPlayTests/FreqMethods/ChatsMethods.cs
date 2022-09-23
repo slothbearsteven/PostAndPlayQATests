@@ -12,9 +12,7 @@ namespace PostAndPlayTests.FreqMethods
     {
         public void ChatCreationHappy(IWebDriver driver)
         {
-            LoginMethods loginMethods = new LoginMethods();
-            loginMethods.HappyPathLogin(driver);
-
+           
             HomePage homePage = new HomePage(driver);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             homePage.chatsButton.Click();

@@ -24,7 +24,9 @@ namespace PostAndPlayTests.Tests
         [Test]
         public void CreateCharacter()
         {
+            LoginMethods loginMethods = new LoginMethods();
             CharactersMethods charactersMethods = new CharactersMethods();
+            loginMethods.HappyPathLogin(driver);
             charactersMethods.CreateCharacterHappy(driver);
 
             CharactersPage charactersPage = new CharactersPage(driver);

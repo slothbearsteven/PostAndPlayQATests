@@ -22,7 +22,10 @@ namespace PostAndPlayTests.Tests
         public void DeleteChat()
         {
             ChatsMethods chatsMethods = new ChatsMethods();
+            LoginMethods loginMethods = new LoginMethods();
 
+
+            loginMethods.HappyPathLogin(driver);
             chatsMethods.ChatCreationHappy(driver);
 
             ChatsPage chatsPage = new ChatsPage(driver);

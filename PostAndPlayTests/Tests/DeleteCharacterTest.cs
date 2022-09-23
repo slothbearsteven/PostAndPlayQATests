@@ -21,7 +21,10 @@ namespace PostAndPlayTests.Tests
         public void DeleteCharacter() 
         {
             CharactersMethods charactersMethods = new CharactersMethods();
+            LoginMethods loginMethods = new LoginMethods();
 
+
+            loginMethods.HappyPathLogin(driver);
             charactersMethods.CreateCharacterHappy(driver);
             CharactersPage charactersPage = new CharactersPage(driver);
 
