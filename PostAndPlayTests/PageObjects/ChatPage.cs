@@ -25,6 +25,8 @@ namespace PostAndPlayTests.Pages
         public IWebElement submitButton => driver.FindElement(By.XPath("//*[@id='app']/div/div/div/div[2]/form/div/button"));
 
         public IWebElement messageSent => driver.FindElement(By.XPath("//*[@id='app']/div/div/div/div[1]/div/div[1]/div/div[2]/p"));
+
+        public IWebElement subscribeButton => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div/div[1]/h3/button"));
    
     }
 }

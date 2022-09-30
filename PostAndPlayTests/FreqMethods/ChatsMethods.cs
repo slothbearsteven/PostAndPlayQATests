@@ -31,7 +31,12 @@ namespace PostAndPlayTests.FreqMethods
 
         public void ChatSubscription(IWebDriver driver)
         {
-
+            ChatCreationHappy(driver);
+            ChatsPage chatsPage = new ChatsPage(driver);
+           IWebElement recentChat= chatsPage.FindMostRecentChat(0);
+            recentChat.Click();
+            ChatPage chatPage = new ChatPage(driver);
+            chatPage.subscribeButton.Click();
         }
     }
 }
