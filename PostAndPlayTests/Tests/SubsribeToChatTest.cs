@@ -1,4 +1,5 @@
 ﻿using PostAndPlayTests.FreqMethods;
+using PostAndPlayTests.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,10 @@ namespace PostAndPlayTests.Tests
 
             loginMethods.HappyPathLogin(driver);
 
+            HomePage homePage = new HomePage(driver);
             //grab ammount subscribed to on the screen currently
+            int originalAmountSubscribed = homePage.amountSubscribedChats;
+
 
 
 

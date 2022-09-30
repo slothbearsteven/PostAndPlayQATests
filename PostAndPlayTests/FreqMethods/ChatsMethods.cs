@@ -27,5 +27,11 @@ namespace PostAndPlayTests.FreqMethods
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
         }
+
+
+        public void ChatSubscription(IWebDriver driver)
+        {
+
+        }
     }
 }
