@@ -1,5 +1,4 @@
-﻿using OpenQA.Selenium.DevTools.V102.Debugger;
-using System;
+﻿using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

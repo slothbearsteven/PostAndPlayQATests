@@ -37,6 +37,7 @@ namespace PostAndPlayTests.FreqMethods
             recentChat.Click();
             ChatPage chatPage = new ChatPage(driver);
             chatPage.subscribeButton.Click();
+
         }
     }
 }

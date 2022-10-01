@@ -27,6 +27,14 @@ namespace PostAndPlayTests.Pages
         public IWebElement messageSent => driver.FindElement(By.XPath("//*[@id='app']/div/div/div/div[1]/div/div[1]/div/div[2]/p"));
 
         public IWebElement subscribeButton => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div/div[1]/h3/button"));
+
+        public IWebElement homeButton => driver.FindElement(By.XPath("//*[@id=\"nav\"]/div/a"));
+
+        public HomePage NavigateToHome()
+        {
+            homeButton.Click();
+            return new HomePage(driver);
+        }
    
     }
 }

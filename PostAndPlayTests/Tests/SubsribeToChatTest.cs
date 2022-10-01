@@ -28,10 +28,14 @@ namespace PostAndPlayTests.Tests
             HomePage homePage = new HomePage(driver);
             //grab ammount subscribed to on the screen currently
             int originalAmountSubscribed = homePage.amountSubscribedChats;
+            chatsMethods.ChatSubscription(driver);
+            ChatPage chatPage = new ChatPage(driver);
+            chatPage.NavigateToHome();
+            int updatedAmountSubscribed = homePage.amountSubscribedChats;
+            Assert.AreNotEqual(originalAmountSubscribed, updatedAmountSubscribed);
 
 
-
-
+            
         }
 
         [TearDown]
