@@ -42,7 +42,7 @@ namespace PostAndPlayTests.Tests
 
         public void TearDown()
         {
-
+            driver.Quit();
         }
     }
 }
