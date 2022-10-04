@@ -36,6 +36,7 @@ namespace PostAndPlayTests.FreqMethods
            IWebElement recentChat= chatsPage.FindMostRecentChat(0);
             recentChat.Click();
             ChatPage chatPage = new ChatPage(driver);
+            Thread.Sleep(500);
             chatPage.subscribeButton.Click();
 
         }

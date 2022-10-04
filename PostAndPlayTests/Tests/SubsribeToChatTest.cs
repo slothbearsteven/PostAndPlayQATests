@@ -31,6 +31,7 @@ namespace PostAndPlayTests.Tests
             chatsMethods.ChatSubscription(driver);
             ChatPage chatPage = new ChatPage(driver);
             chatPage.NavigateToHome();
+            Thread.Sleep(500);
             int updatedAmountSubscribed = homePage.amountSubscribedChats;
             Assert.AreNotEqual(originalAmountSubscribed, updatedAmountSubscribed);
 
