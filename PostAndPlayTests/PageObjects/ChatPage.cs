@@ -28,6 +28,12 @@ namespace PostAndPlayTests.Pages
 
         public IWebElement subscribeButton => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div/div[1]/h3/button"));
 
+        public IWebElement charactersDropdown => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div/div[3]/span/button"));
+
+        public IWebElement characterToSelect => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div/div[3]/span/div/a[2]"));
+
+        public IWebElement characterNameUsed => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div/div[1]/div/div[1]/div/div[1]/div[1]/strong"));
+
         public IWebElement homeButton => driver.FindElement(By.XPath("//*[@id=\"nav\"]/div/a"));
 
         public HomePage NavigateToHome()
