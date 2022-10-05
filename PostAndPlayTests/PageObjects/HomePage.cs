@@ -33,7 +33,10 @@ namespace PostAndPlayTests.Pages
         public IWebElement diceResult => driver.FindElement(By.Id("results"));
         //End Dice Modal elements
 
+        public IWebElement firstUnsubscribeButton => driver.FindElement(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div/div[2]/div/div/button/b"));
+
         public int amountSubscribedChats => driver.FindElements(By.XPath("//*[@id=\"app\"]/div/div/div[2]/div/*")).Count;
+
 
         public ChatPage NavigateToSubscribedChat()
         {

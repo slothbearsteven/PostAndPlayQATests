@@ -29,15 +29,24 @@ namespace PostAndPlayTests.Tests
             chatsMethods.ChatSubscription(driver);
             ChatPage chatPage = new ChatPage(driver);
             chatPage.NavigateToHome();
+            Thread.Sleep(500);
             
             int originalAmountSubscribed = homePage.amountSubscribedChats;
-             
 
             //Unsubscribe button clicked
-
+            homePage.firstUnsubscribeButton.Click();
             //Unsubscribed chat is removed from list, refresh for best result
+            driver.Navigate().Refresh();
+            Thread.Sleep(500);
+
+            int newAmountSubscribed = homePage.amountSubscribedChats;
 
             //Assert originalAmountSubscribed and afterUnsubscribe are NOT equal
+            Assert.AreNotEqual(originalAmountSubscribed, newAmountSubscribed);
+
+
+
+
 
         }
 
