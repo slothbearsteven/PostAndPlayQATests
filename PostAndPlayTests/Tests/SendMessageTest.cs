@@ -19,6 +19,7 @@ namespace PostAndPlayTests.Tests
         public void SetUp()
         {
             driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
         }
         [Test]
         public void SendMessage()
