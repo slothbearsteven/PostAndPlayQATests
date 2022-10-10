@@ -32,6 +32,7 @@ namespace PostAndPlayTests.Tests
             chatsMethods.ChatSubscription(driver);
             ChatPage chatPage = new ChatPage(driver);
             chatPage.NavigateToHome();
+            //Remove thread here after reading up more on explicit waits
             Thread.Sleep(500);
             int updatedAmountSubscribed = homePage.amountSubscribedChats;
             Assert.AreNotEqual(originalAmountSubscribed, updatedAmountSubscribed);

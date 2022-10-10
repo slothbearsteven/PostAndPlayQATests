@@ -30,6 +30,7 @@ namespace PostAndPlayTests.Tests
             chatsMethods.ChatSubscription(driver);
             ChatPage chatPage = new ChatPage(driver);
             chatPage.NavigateToHome();
+            //Look into best practice for explicit waits, to eliminate the use of thread
             Thread.Sleep(500);
             
             int originalAmountSubscribed = homePage.amountSubscribedChats;
